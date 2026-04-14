@@ -3,162 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Destinos · China monumental · estilo Gran Muralla</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', system-ui, sans-serif; }
-        body { background-color: #ffffff; color: #1e2a3a; line-height: 1.5; }
-        .container { max-width: 1600px; margin: 0 auto; padding: 0 60px; }
-
-        /* HEADER idéntico al resto */
-        header {
-            background-color: #ffffff; box-shadow: 0 2px 10px rgba(0,0,0,0.02); padding: 20px 0;
-            border-bottom: 1px solid #f0f3f7;
-        }
-        .header-flex {
-            display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap;
-        }
-        .logo { display: flex; align-items: center; flex-shrink: 0; }
-        .logo img { display: block; width: auto; height: 90px; max-width: 260px; object-fit: contain; }
-        .nav-links {
-            display: flex; align-items: center; gap: 56px; flex-wrap: wrap; margin: 0 20px;
-        }
-        .nav-links a {
-            text-decoration: none; color: #1e2a3a; font-weight: 500; font-size: 1.2rem;
-            letter-spacing: 0.2px; white-space: nowrap;
-        }
-        .nav-links a:hover { color: #b13e3e; }
-        .lang-wrapper { display: flex; align-items: center; flex-shrink: 0; }
-        .lang-toggle {
-            display: flex; gap: 8px; background: #f1f5f9; padding: 4px; border-radius: 40px;
-            border: 1px solid #e2e8f0;
-        }
-        .lang-btn {
-            background: transparent; border: none; padding: 10px 24px; border-radius: 32px;
-            font-weight: 600; font-size: 1rem; color: #2e405b; cursor: default;
-        }
-        .lang-btn.active { background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.06); color: #b22222; }
-
-        /* imágenes base */
-        img { display: block; width: 100%; height: 100%; object-fit: cover; }
-
-        .hero-image {
-            width: 100%; background-color: #d9e2ec; min-height: 450px; margin: 40px 0 32px;
-            border-radius: 28px; overflow: hidden; box-shadow: 0 20px 30px -10px rgba(0,0,0,0.12);
-        }
-
-        h1 { font-size: 4.2rem; text-align: center; margin: 30px 0 40px; color: #b22222; font-weight: 600; }
-        h2 {
-            font-size: 2.8rem; text-align: center; margin: 60px 0 35px; color: #1e2a3a;
-            font-weight: 600; position: relative;
-        }
-        h2::after {
-            content: ''; display: block; width: 90px; height: 4px; background: #b22222;
-            margin: 18px auto 0; border-radius: 4px;
-        }
-
-        /* dos columnas genéricas */
-        .two-col {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin: 50px 0;
-        }
-        .col-img {
-            background-color: #cfddee; border-radius: 32px; overflow: hidden; min-height: 320px;
-            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.15);
-        }
-        .col-text { text-align: justify; font-size: 1.15rem; color: #253746; }
-
-        /* pares estrechos: columna de texto y columna de imagen más estrecha (se controla con grid) */
-        .pair-narrow {
-            display: grid; grid-template-columns: 1fr 0.8fr; gap: 40px; align-items: center; margin: 40px 0;
-        }
-        .pair-narrow-reverse {
-            display: grid; grid-template-columns: 0.8fr 1fr; gap: 40px; align-items: center; margin: 40px 0;
-        }
-        .solid-box-red {
-            background-color: #DF1A2D; color: white; padding: 40px 30px; border-radius: 32px;
-            height: 100%; display: flex; flex-direction: column; justify-content: center;
-        }
-        .solid-box-red p { text-align: justify; font-size: 1.1rem; }
-        .solid-box-red h3 {
-            font-size: 2rem; margin-bottom: 20px; border-left: 6px solid white; padding-left: 16px;
-            color: white;
-        }
-        .solid-box-yellow {
-            background-color: #FEBF1B; color: white; padding: 40px 30px; border-radius: 32px;
-            height: 100%; display: flex; flex-direction: column; justify-content: center;
-        }
-        .solid-box-yellow p { text-align: justify; font-size: 1.1rem; }
-        .solid-box-yellow h3 {
-            font-size: 2rem; margin-bottom: 20px; border-left: 6px solid white; padding-left: 16px;
-            color: white;
-        }
-
-        /* --- CONTENEDOR ESTILO GRAN MURALLA (fondo verde 80% + imagen) --- */
-        .feature-card {
-            background-color: rgba(2, 59, 59, 0.8); /* #023B3B con 80% */
-            border-radius: 40px; padding: 40px; margin: 50px 0; display: grid;
-            grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; color: white;
-        }
-        .feature-card .text-content h3 {
-            font-size: 2.2rem; margin-bottom: 20px; border-left: 6px solid #FEBF1B; padding-left: 20px;
-        }
-        .feature-card .text-content p { text-align: justify; font-size: 1.15rem; }
-        .feature-card .image-content {
-            border-radius: 30px; overflow: hidden; height: 300px; box-shadow: 0 15px 25px rgba(0,0,0,0.3);
-        }
-
-        /* imágenes fijas dentro de pares */
-        .narrow-img {
-            border-radius: 32px; overflow: hidden; height: 280px; background-color: #b7ccda;
-            box-shadow: 0 15px 25px -8px rgba(0,0,0,0.2);
-        }
-
-        .btn-right {
-            display: flex; justify-content: flex-end; margin: 50px 0 70px;
-        }
-        .btn-culture {
-            background-color: #b22222; color: white; border: none; padding: 20px 60px;
-            font-size: 1.4rem; font-weight: 600; border-radius: 60px; cursor: pointer;
-            box-shadow: 0 15px 28px rgba(178,34,34,0.25); transition: 0.2s; letter-spacing: 1.8px;
-        }
-        .btn-culture:hover { background-color: #8b1a1a; transform: scale(1.02); }
-
-        /* footer */
-        footer {
-            background: #102331; color: #d4dfeb; padding: 60px 0 45px; margin-top: 70px;
-            border-top: 6px solid #b22222;
-        }
-        .footer-content {
-            display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 30px;
-        }
-        .footer-links a {
-            color: #e5edf5; text-decoration: none; margin-right: 45px; font-size: 1.1rem;
-        }
-        .footer-links a:hover { color: #d49b8c; }
-        .copyright { font-size: 1rem; opacity: 0.8; }
-
-        @media (max-width: 1200px) {
-            .container { padding: 0 30px; }
-            h1 { font-size: 3.5rem; }
-            .pair-narrow, .pair-narrow-reverse, .feature-card { grid-template-columns: 1fr; }
-        }
-
-        /* ajuste menor para mantener coherencia de imágenes locales (se usan rutas originales) */
-    </style>
+    <title>Destinos · China monumental</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <!-- HEADER -->
     <header>
         <div class="container header-flex">
             <div class="logo">
                 <img src="imagenes/logo.png" alt="China Tours logo">
             </div>
             <nav class="nav-links">
-                <a href="#">Inicio</a>
-                <a href="#">Cultura</a>
-                <a href="#">Destinos</a>
-                <a href="#">Sobre Nosotros</a>
-                <a href="#">Referencias</a>
+                <a href="index.html" data-i18n="nav-inicio">Inicio</a>
+                <a href="cultura.html" data-i18n="nav-cultura">Cultura</a>
+                <a href="destinos.html" data-i18n="nav-destinos">Destinos</a>
+                <a href="sobrenosotros.html" data-i18n="nav-sobrenosotros">Sobre Nosotros</a>
+                <a href="referencias.html" data-i18n="nav-referencias">Referencias</a>
             </nav>
             <div class="lang-wrapper">
                 <div class="lang-toggle">
@@ -170,188 +30,168 @@
     </header>
 
     <main class="container">
-
-        <!-- imagen centrada d1 -->
         <div class="hero-image">
             <img src="imagenes/d1.jpg" alt="Destinos China">
         </div>
 
-        <h1>LUGARES QUE PODRÍAS VISITAR</h1>
+        <h1 data-i18n="title-destinos">LUGARES QUE PODRÍAS VISITAR</h1>
 
-        <!-- dos columnas iniciales: izquierda d2 / derecha texto introductorio -->
         <div class="two-col">
             <div class="col-img">
                 <img src="imagenes/d2.jpg" alt="d2 introducción">
             </div>
-            <div class="col-text">
+            <div class="col-text" data-i18n="texto-destinos-intro">
                 <p>La riqueza territorial de China ofrece una diversidad de destinos que reflejan la profundidad de su historia, la magnitud de su patrimonio arquitectónico y la majestuosidad de sus paisajes naturales. Desde ciudades que conservan huellas milenarias hasta escenarios contemporáneos que evidencian su constante transformación, cada lugar constituye una experiencia cultural única. A continuación, se presenta una selección representativa de espacios emblemáticos que permiten comprender la amplitud geográfica, simbólica y cultural del país. Estos destinos no solo destacan por su valor turístico, sino también por su significado histórico y su aporte a la identidad nacional, invitando al visitante a descubrir una nación donde tradición y modernidad conviven en armonía.</p>
             </div>
         </div>
 
-        <!-- PRIMER BLOQUE: PEKÍN (DF1A2D) + imagen d3 estrecha -->
         <div class="pair-narrow">
             <div class="solid-box-red">
-                <h3>Pekín</h3>
-                <p>Capital política y cultural de China, Pekín combina patrimonio imperial y dinamismo contemporáneo. Aquí conviven palacios, templos ancestrales y amplias avenidas modernas que reflejan la evolución del país. Es el punto de partida ideal para comprender la historia dinástica, la filosofía tradicional y la transformación urbana de una de las civilizaciones más antiguas del mundo.</p>
+                <h3 data-i18n="dest-pekin">Pekín</h3>
+                <p data-i18n="texto-destinos-pekin">Capital política y cultural de China, Pekín combina patrimonio imperial y dinamismo contemporáneo. Aquí conviven palacios, templos ancestrales y amplias avenidas modernas que reflejan la evolución del país. Es el punto de partida ideal para comprender la historia dinástica, la filosofía tradicional y la transformación urbana de una de las civilizaciones más antiguas del mundo.</p>
             </div>
             <div class="narrow-img">
                 <img src="imagenes/d3.jpg" alt="d3 Pekín">
             </div>
         </div>
 
-        <!-- SEGUNDO BLOQUE: imagen d4 estrecha + PEKÍN (FEBF1B) -->
         <div class="pair-narrow-reverse">
             <div class="narrow-img">
                 <img src="imagenes/d4.jpg" alt="d4 Pekín">
             </div>
             <div class="solid-box-yellow">
-                <h3>Pekín</h3>
-                <p>Capital política y cultural de China, Pekín combina patrimonio imperial y dinamismo contemporáneo. Aquí conviven palacios, templos ancestrales y amplias avenidas modernas que reflejan la evolución del país. Es el punto de partida ideal para comprender la historia dinástica, la filosofía tradicional y la transformación urbana de una de las civilizaciones más antiguas del mundo.</p>
+                <h3 data-i18n="dest-pekin">Pekín</h3>
+                <p data-i18n="texto-destinos-pekin">Capital política y cultural de China, Pekín combina patrimonio imperial y dinamismo contemporáneo. Aquí conviven palacios, templos ancestrales y amplias avenidas modernas que reflejan la evolución del país. Es el punto de partida ideal para comprender la historia dinástica, la filosofía tradicional y la transformación urbana de una de las civilizaciones más antiguas del mundo.</p>
             </div>
         </div>
 
-        <!-- GRAN MURALLA (feature card con fondo verde 80%) ESTILO DESTACADO -->
         <div class="feature-card">
             <div class="text-content">
-                <h3>Gran Muralla China</h3>
-                <p>Icono indiscutible del país, la Gran Muralla es una de las obras de ingeniería más impresionantes de la historia. Construida y reconstruida durante siglos para proteger las fronteras del imperio, serpentea entre montañas y valles ofreciendo panorámicas espectaculares y una profunda lección de historia. Recorrer sus torres de vigilancia y tramos restaurados permite comprender la magnitud del legado arquitectónico chino y su relevancia cultural a nivel mundial.</p>
+                <h3 data-i18n="dest-muralla">Gran Muralla China</h3>
+                <p data-i18n="texto-destinos-muralla">Icono indiscutible del país, la Gran Muralla es una de las obras de ingeniería más impresionantes de la historia. Construida y reconstruida durante siglos para proteger las fronteras del imperio, serpentea entre montañas y valles ofreciendo panorámicas espectaculares y una profunda lección de historia. Recorrer sus torres de vigilancia y tramos restaurados permite comprender la magnitud del legado arquitectónico chino y su relevancia cultural a nivel mundial.</p>
             </div>
             <div class="image-content">
                 <img src="imagenes/d5.jpg" alt="d5 Gran Muralla">
             </div>
         </div>
 
-        <!-- GUILIN Y YANGSHUO (DF1A2D) + imagen d6 estrecha -->
         <div class="pair-narrow">
             <div class="solid-box-red">
-                <h3>Guilin y Yangshuo</h3>
-                <p>Famosas por sus formaciones kársticas y paisajes fluviales, Guilin y Yangshuo ofrecen algunos de los escenarios naturales más representativos de China. Las montañas que emergen entre la niebla y los tranquilos ríos crean una atmósfera casi pictórica, ideal para quienes buscan contacto con la naturaleza y paisajes de extraordinaria belleza.</p>
+                <h3 data-i18n="dest-guilin">Guilin y Yangshuo</h3>
+                <p data-i18n="texto-destinos-guilin">Famosas por sus formaciones kársticas y paisajes fluviales, Guilin y Yangshuo ofrecen algunos de los escenarios naturales más representativos de China. Las montañas que emergen entre la niebla y los tranquilos ríos crean una atmósfera casi pictórica, ideal para quienes buscan contacto con la naturaleza y paisajes de extraordinaria belleza.</p>
             </div>
             <div class="narrow-img">
                 <img src="imagenes/d6.jpg" alt="d6 Guilin">
             </div>
         </div>
 
-        <!-- PINGYAO: imagen d7 estrecha + PINGYAO (FEBF1B) -->
         <div class="pair-narrow-reverse">
             <div class="narrow-img">
                 <img src="imagenes/d7.jpg" alt="d7 Pingyao">
             </div>
             <div class="solid-box-yellow">
-                <h3>Pingyao</h3>
-                <p>Considerada una de las ciudades amuralladas mejor conservadas del país, Pingyao permite viajar en la tiempo a la China imperial. Sus calles empedradas, patios tradicionales y antiguas instituciones financieras reflejan el papel histórico de la región en el desarrollo económico del imperio.</p>
+                <h3 data-i18n="dest-pingyao">Pingyao</h3>
+                <p data-i18n="texto-destinos-pingyao">Considerada una de las ciudades amuralladas mejor conservadas del país, Pingyao permite viajar en el tiempo a la China imperial. Sus calles empedradas, patios tradicionales y antiguas instituciones financieras reflejan el papel histórico de la región en el desarrollo económico del imperio.</p>
             </div>
         </div>
 
-        <!-- TERRAZAS DE LONGJI (feature card fondo verde) MISMO ESTILO QUE GRAN MURALLA -->
         <div class="feature-card">
             <div class="text-content">
-                <h3>Terrazas de Arroz de Longji</h3>
-                <p>Con más de siete siglos de historia, estas terrazas esculpidas en las montañas representan la armonía entre el ser humano y el entorno. Su diseño escalonado no solo es funcional para la agricultura, sino también visualmente impactante, cambiando de tonalidad según la estación del año y ofreciendo una experiencia paisajística única.</p>
+                <h3 data-i18n="dest-longji">Terrazas de Arroz de Longji</h3>
+                <p data-i18n="texto-destinos-longji">Con más de siete siglos de historia, estas terrazas esculpidas en las montañas representan la armonía entre el ser humano y el entorno. Su diseño escalonado no solo es funcional para la agricultura, sino también visualmente impactante, cambiando de tonalidad según la estación del año y ofreciendo una experiencia paisajística única.</p>
             </div>
             <div class="image-content">
                 <img src="imagenes/d8.jpg" alt="d8 Longji">
             </div>
         </div>
 
-        <!-- XI'AN Y GUERREROS (DF1A2D) + imagen d9 estrecha -->
         <div class="pair-narrow">
             <div class="solid-box-red">
-                <h3>Xi'an y Guerreros de Terracota</h3>
-                <p>Xi’an fue el punto de partida de la Ruta de la Seda y una de las capitales más importantes de la antigua China. Su mayor tesoro es el ejército de Guerreros de Terracota, miles de figuras esculpidas con un nivel de detalle extraordinario, que custodian el mausoleo del primer emperador y constituyen uno de los descubrimientos arqueológicos más relevantes del siglo XX.</p>
+                <h3 data-i18n="dest-xian">Xi'an y Guerreros de Terracota</h3>
+                <p data-i18n="texto-destinos-xian">Xi'an fue el punto de partida de la Ruta de la Seda y una de las capitales más importantes de la antigua China. Su mayor tesoro es el ejército de Guerreros de Terracota, miles de figuras esculpidas con un nivel de detalle extraordinario, que custodian el mausoleo del primer emperador y constituyen uno de los descubrimientos arqueológicos más relevantes del siglo XX.</p>
             </div>
             <div class="narrow-img">
                 <img src="imagenes/d9.jpg" alt="d9 Xi'an">
             </div>
         </div>
 
-        <!-- MONTAÑA TIANMEN: imagen d10 estrecha + TIANMEN (FEBF1B) -->
         <div class="pair-narrow-reverse">
             <div class="narrow-img">
                 <img src="imagenes/d10.jpg" alt="d10 Tianmen">
             </div>
             <div class="solid-box-yellow">
-                <h3>Montaña Tianmen</h3>
-                <p>Conocida por su espectacular arco natural y sus pasarelas suspendidas sobre el vacío, la Montaña Tianmen ofrece una experiencia de aventura y contemplación. El ascenso en teleférico y la famosa “Puerta del Cielo” simbolizan la dimensión espiritual que muchas montañas poseen en la tradición china.</p>
+                <h3 data-i18n="dest-tianmen">Montaña Tianmen</h3>
+                <p data-i18n="texto-destinos-tianmen">Conocida por su espectacular arco natural y sus pasarelas suspendidas sobre el vacío, la Montaña Tianmen ofrece una experiencia de aventura y contemplación. El ascenso en teleférico y la famosa "Puerta del Cielo" simbolizan la dimensión espiritual que muchas montañas poseen en la tradición china.</p>
             </div>
         </div>
 
-        <!-- PARQUE NACIONAL ZHANGJIAJIE (feature card fondo verde) MISMO ESTILO QUE GRAN MURALLA -->
         <div class="feature-card">
             <div class="text-content">
-                <h3>Parque Nacional de Zhangjiajie</h3>
-                <p>Famoso por sus columnas de piedra que se elevan dramáticamente entre la niebla, este parque nacional es uno de los paisajes naturales más impactantes de Asia. Sus formaciones verticales y senderos panorámicos lo convierten en un destino imprescindible para amantes del ecoturismo y la fotografía.</p>
+                <h3 data-i18n="dest-zhangjiajie">Parque Nacional de Zhangjiajie</h3>
+                <p data-i18n="texto-destinos-zhangjiajie">Famoso por sus columnas de piedra que se elevan dramáticamente entre la niebla, este parque nacional es uno de los paisajes naturales más impactantes de Asia. Sus formaciones verticales y senderos panorámicos lo convierten en un destino imprescindible para amantes del ecoturismo y la fotografía.</p>
             </div>
             <div class="image-content">
                 <img src="imagenes/d11.jpg" alt="d11 Zhangjiajie">
             </div>
         </div>
 
-        <!-- CHENGDU (DF1A2D) + imagen d12 estrecha -->
         <div class="pair-narrow">
             <div class="solid-box-red">
-                <h3>Chengdu</h3>
-                <p>Capital de la provincia de Sichuan, Chengdu es reconocida tanto por su patrimonio cultural como por ser el principal centro de conservación del panda gigante. Además, su gastronomía picante y su estilo de vida relajado la convierten en una parada imprescindible para comprender la diversidad regional del país.</p>
+                <h3 data-i18n="dest-chengdu">Chengdu</h3>
+                <p data-i18n="texto-destinos-chengdu">Capital de la provincia de Sichuan, Chengdu es reconocida tanto por su patrimonio cultural como por ser el principal centro de conservación del panda gigante. Además, su gastronomía picante y su estilo de vida relajado la convierten en una parada imprescindible para comprender la diversidad regional del país.</p>
             </div>
             <div class="narrow-img">
                 <img src="imagenes/d12.jpg" alt="d12 Chengdu">
             </div>
         </div>
 
-        <!-- GRAN BUDA DE LESHAN: imagen d13 estrecha + LESHAN (FEBF1B) -->
         <div class="pair-narrow-reverse">
             <div class="narrow-img">
                 <img src="imagenes/d13.jpg" alt="d13 Leshan">
             </div>
             <div class="solid-box-yellow">
-                <h3>Gran Buda de Leshan</h3>
-                <p>Tallado en un acantilado hace más de mil años, el Gran Buda de Leshan es la escultura de Buda en piedra más grande del mundo. Su monumentalidad y contexto natural reflejan la profunda influencia del budismo en la historia y el arte chino.</p>
+                <h3 data-i18n="dest-leshan">Gran Buda de Leshan</h3>
+                <p data-i18n="texto-destinos-leshan">Tallado en un acantilado hace más de mil años, el Gran Buda de Leshan es la escultura de Buda en piedra más grande del mundo. Su monumentalidad y contexto natural reflejan la profunda influencia del budismo en la historia y el arte chino.</p>
             </div>
         </div>
 
-        <!-- HONG KONG (feature card fondo verde) MISMO ESTILO QUE GRAN MURALLA -->
         <div class="feature-card">
             <div class="text-content">
-                <h3>Hong Kong</h3>
-                <p>Región Administrativa Especial, Hong Kong destaca por su carácter internacional y su singular mezcla cultural. Rascacielos, tradición cantonesa y herencia colonial conviven en un entorno dinámico que ofrece una perspectiva distinta dentro del panorama chino, consolidándola como uno de los destinos más vibrantes de Asia.</p>
+                <h3 data-i18n="dest-hongkong">Hong Kong</h3>
+                <p data-i18n="texto-destinos-hongkong">Región Administrativa Especial, Hong Kong destaca por su carácter internacional y su singular mezcla cultural. Rascacielos, tradición cantonesa y herencia colonial conviven en un entorno dinámico que ofrece una perspectiva distinta dentro del panorama chino, consolidándola como uno de los destinos más vibrantes de Asia.</p>
             </div>
             <div class="image-content">
                 <img src="imagenes/d14.jpg" alt="d14 Hong Kong">
             </div>
         </div>
 
-        <!-- TÍTULO: ¿YA EMPACASTE TUS COSAS? -->
-        <h2>¿YA EMPACASTE TUS COSAS?</h2>
+        <h2 data-i18n="sub-empacaste">¿YA EMPACASTE TUS COSAS?</h2>
 
-        <!-- dos columnas: izquierda d15, derecha texto final -->
         <div class="two-col">
             <div class="col-img">
                 <img src="imagenes/d15.jpg" alt="d15 preparativos">
             </div>
-            <div class="col-text">
+            <div class="col-text" data-i18n="texto-destinos-final">
                 <p>Explorar China es adentrarse en una civilización milenaria donde historia, tradición y modernidad convergen de manera extraordinaria. Cada experiencia —ya sea cultural, gastronómica o natural— revela una sociedad profundamente conectada con sus raíces y en constante evolución. Más que un destino turístico, China representa una oportunidad para comprender valores, símbolos y expresiones que han trascendido generaciones. Te invitamos a vivir de cerca sus festivales, paisajes y patrimonio cultural, y a descubrir una nación que combina grandeza histórica con dinamismo contemporáneo.</p>
             </div>
         </div>
 
-        <!-- botón alineado a la derecha -->
         <div class="btn-right">
-            <button class="btn-culture">EXPLORA LA CULTURA</button>
+            <button class="btn-culture" onclick="window.location.href='cultura.html'" data-i18n="btn-cultura">EXPLORA LA CULTURA</button>
         </div>
-
     </main>
 
     <footer>
         <div class="container footer-content">
             <div class="footer-links">
-                <a href="#">Inicio</a>
-                <a href="#">Cultura</a>
-                <a href="#">Destinos</a>
-                <a href="#">Sobre Nosotros</a>
-                <a href="#">Referencias</a>
-                <a href="#">Idioma</a>
+                <a href="index.html" data-i18n="nav-inicio">Inicio</a>
+                <a href="cultura.html" data-i18n="nav-cultura">Cultura</a>
+                <a href="destinos.html" data-i18n="nav-destinos">Destinos</a>
+                <a href="sobrenosotros.html" data-i18n="nav-sobrenosotros">Sobre Nosotros</a>
+                <a href="referencias.html" data-i18n="nav-referencias">Referencias</a>
             </div>
-            <div class="copyright">
-                © 2025 web-china · Todos los derechos reservados
+            <div class="copyright" data-i18n="footer-copyright">
+                © 2026 web-china · Todos los derechos reservados
             </div>
         </div>
     </footer>

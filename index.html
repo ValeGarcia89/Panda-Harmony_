@@ -4,374 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Esto es China · herencia y destino</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-        }
-
-        body {
-            background-color: #ffffff;
-            color: #1e2a3a;
-            line-height: 1.5;
-        }
-
-        /* contenedor mucho más ancho: contenido hacia los lados */
-        .container {
-            max-width: 1600px;      /* más ancho aún */
-            margin: 0 auto;
-            padding: 0 60px;        /* padding generoso para que respire, pero contenido expandido */
-        }
-
-        /* ===== HEADER ===== */
-        header {
-            background-color: #ffffff;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
-            padding: 20px 0;         /* más altura para que el logo grande encaje */
-            border-bottom: 1px solid #f0f3f7;
-        }
-
-        .header-flex {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 40px;
-            flex-wrap: wrap;
-        }
-
-        /* LOGO MÁS GRANDE, solo imagen (sin texto, sin fondo rojo) */
-        .logo {
-            display: flex;
-            align-items: center;
-            flex-shrink: 0;
-        }
-
-        .logo img {
-            display: block;
-            width: auto;
-            height: 90px;            /* tamaño aumentado (antes 60px) */
-            max-width: 260px;
-            object-fit: contain;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 56px;                /* más espacio entre enlaces */
-            flex-wrap: wrap;
-            margin: 0 20px;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #1e2a3a;
-            font-weight: 500;
-            font-size: 1.2rem;        /* levemente más grande */
-            letter-spacing: 0.2px;
-            transition: color 0.2s;
-            white-space: nowrap;
-        }
-
-        .nav-links a:hover {
-            color: #b13e3e;
-        }
-
-        .lang-wrapper {
-            display: flex;
-            align-items: center;
-            flex-shrink: 0;
-        }
-
-        .lang-toggle {
-            display: flex;
-            gap: 8px;
-            background: #f1f5f9;
-            padding: 4px;
-            border-radius: 40px;
-            border: 1px solid #e2e8f0;
-        }
-
-        .lang-btn {
-            background: transparent;
-            border: none;
-            padding: 10px 24px;       /* botones más grandes */
-            border-radius: 32px;
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: default;
-            color: #2e405b;
-        }
-
-        .lang-btn.active {
-            background: #ffffff;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-            color: #b22222;
-        }
-
-        /* ===== SECCIONES CON FONDO #FFF7E2 ===== */
-        .bg-crema {
-            background-color: #FFF7E2;
-            padding: 40px 0 30px;
-            border-radius: 60px 60px 40px 40px;  /* suave curvatura */
-            margin: 50px 0 20px;
-        }
-
-        /* ajuste para títulos dentro de fondo crema */
-        .bg-crema h2 {
-            margin-top: 10px;
-            margin-bottom: 30px;
-        }
-
-        /* imágenes base */
-        img {
-            display: block;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .hero-image {
-            width: 100%;
-            background-color: #d9e2ec;
-            min-height: 450px;
-            margin: 40px 0 32px;
-            border-radius: 28px;
-            overflow: hidden;
-            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.12);
-        }
-
-        h1 {
-            font-size: 4.2rem;         /* más grande para proporción */
-            text-align: center;
-            margin: 30px 0 40px;
-            color: #b22222;
-            font-weight: 600;
-            letter-spacing: 1px;
-        }
-
-        h2 {
-            font-size: 2.8rem;
-            text-align: center;
-            margin: 60px 0 35px;
-            color: #1e2a3a;
-            position: relative;
-            font-weight: 600;
-        }
-        h2::after {
-            content: '';
-            display: block;
-            width: 90px;
-            height: 4px;
-            background: #b22222;
-            margin: 18px auto 0;
-            border-radius: 4px;
-        }
-
-        .two-col {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;                /* más espacio */
-            align-items: center;
-            margin: 50px 0;
-        }
-
-        .col-img {
-            background-color: #cfddee;
-            border-radius: 32px;
-            overflow: hidden;
-            min-height: 320px;
-            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.15);
-        }
-
-        .col-text {
-            text-align: justify;
-            font-size: 1.15rem;
-            color: #253746;
-        }
-
-        /* tres columnas (para las cards) */
-        .three-col {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-            margin: 40px 0;
-        }
-
-        .card {
-            background: #ffffff;
-            border-radius: 32px;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.04);
-            overflow: hidden;
-            border: 1px solid #ecf2f8;
-            transition: transform 0.2s;
-        }
-        .card:hover {
-            transform: translateY(-8px);
-        }
-
-        .card-img {
-            width: 100%;
-            height: 240px;          /* imagen fija, ligeramente mayor */
-            background-color: #b6c9d6;
-            overflow: hidden;
-        }
-
-        .card-content {
-            padding: 26px 22px 30px;
-        }
-
-        .card-content h3 {
-            font-size: 2rem;            /* subtítulos más visibles */
-            font-weight: 600;
-            margin-bottom: 18px;
-            color: #b13e3e;
-            border-left: 6px solid #b22222;
-            padding-left: 16px;
-        }
-
-        .card-content p {
-            text-align: justify;
-            font-size: 1.05rem;
-            color: #2d3f4f;
-        }
-
-        /* lugares más visitados grid */
-        .complex-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin: 50px 0;
-        }
-
-        .left-large {
-            border-radius: 32px;
-            overflow: hidden;
-            background-color: #a1b7cb;
-            min-height: 480px;
-            box-shadow: 0 20px 30px -8px rgba(0,0,0,0.2);
-        }
-
-        .right-split {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-        }
-
-        .split-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px;
-            background: #fafcfe;
-            border-radius: 28px;
-            overflow: hidden;
-            align-items: center;
-            border: 1px solid #e2ecf5;
-            box-shadow: 0 5px 12px rgba(0,0,0,0.02);
-        }
-
-        .split-img {
-            height: 210px;
-            background-color: #b7ccda;
-        }
-
-        .split-text {
-            padding: 12px 22px;
-            text-align: justify;
-            font-size: 1.05rem;
-        }
-        .split-text strong {
-            color: #b13e3e;
-            font-size: 1.4rem;
-            display: block;
-            margin-bottom: 8px;
-        }
-
-        .btn-right {
-            display: flex;
-            justify-content: flex-end;
-            margin: 50px 0 70px;
-        }
-
-        .btn-culture {
-            background-color: #b22222;
-            color: white;
-            border: none;
-            padding: 20px 60px;
-            font-size: 1.4rem;
-            font-weight: 600;
-            border-radius: 60px;
-            cursor: pointer;
-            box-shadow: 0 15px 28px rgba(178,34,34,0.25);
-            transition: 0.2s;
-            letter-spacing: 1.8px;
-        }
-
-        .btn-culture:hover {
-            background-color: #8b1a1a;
-            transform: scale(1.02);
-        }
-
-        footer {
-            background: #102331;
-            color: #d4dfeb;
-            padding: 60px 0 45px;
-            margin-top: 70px;
-            border-top: 6px solid #b22222;
-        }
-
-        .footer-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            gap: 30px;
-        }
-
-        .footer-links a {
-            color: #e5edf5;
-            text-decoration: none;
-            margin-right: 45px;
-            font-size: 1.1rem;
-        }
-        .footer-links a:hover {
-            color: #d49b8c;
-        }
-        .copyright {
-            font-size: 1rem;
-            opacity: 0.8;
-        }
-
-        @media (max-width: 1200px) {
-            .container { padding: 0 30px; }
-            h1 { font-size: 3.5rem; }
-            .three-col { gap: 25px; }
-        }
-        @media (max-width: 900px) {
-            .two-col, .three-col, .complex-grid {
-                grid-template-columns: 1fr;
-            }
-            .split-row { grid-template-columns: 1fr; }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <!-- HEADER con logo más grande y contenido expandido -->
     <header>
         <div class="container header-flex">
-            <!-- LOGO solo imagen, más grande (height 90px) sin fondo rojo -->
             <div class="logo">
                 <img src="imagenes/logo.png" alt="China Tours logo">
             </div>
 
             <nav class="nav-links">
-                <a href="#">Inicio</a>
-                <a href="#">Cultura</a>
-                <a href="#">Destinos</a>
-                <a href="#">Sobre Nosotros</a>
-                <a href="#">Referencias</a>
+                <a href="index.html" data-i18n="nav-inicio">Inicio</a>
+                <a href="cultura.html" data-i18n="nav-cultura">Cultura</a>
+                <a href="destinos.html" data-i18n="nav-destinos">Destinos</a>
+                <a href="sobrenosotros.html" data-i18n="nav-sobrenosotros">Sobre Nosotros</a>
+                <a href="referencias.html" data-i18n="nav-referencias">Referencias</a>
             </nav>
 
             <div class="lang-wrapper">
@@ -384,88 +32,79 @@
     </header>
 
     <main class="container">
-
-        <!-- i1 centrada -->
         <div class="hero-image">
             <img src="imagenes/i1.jpg" alt="Panorámica de China">
         </div>
 
-        <h1>ESTO ES CHINA</h1>
+        <h1 data-i18n="title-index">ESTO ES CHINA</h1>
 
-        <!-- dos columnas i2 + texto -->
         <div class="two-col">
             <div class="col-img">
                 <img src="imagenes/i2.jpg" alt="Paisaje i2">
             </div>
-            <div class="col-text">
+            <div class="col-text" data-i18n="texto-index-intro">
                 <p>La República Popular China, ubicada en Asia oriental a orillas del Pacífico, es el tercer país más extenso del mundo y una de las civilizaciones continuas más antiguas, con más de cinco milenios de historia. Su territorio diverso —desde la meseta del Tíbet y el Himalaya hasta vastas llanuras, ríos emblemáticos como el Changjiang River y extensas costas— refleja una riqueza geográfica y climática excepcional. Cuna de innovaciones trascendentales como el papel, la imprenta, la brújula y la pólvora, China ha ejercido una influencia decisiva en el desarrollo cultural y científico mundial. Hoy combina tradición y modernidad: una nación multicultural compuesta por 56 grupos étnicos, con el mandarín como lengua oficial y una herencia artística que abarca literatura clásica, ópera tradicional, caligrafía, pintura y gastronomía reconocida globalmente. Potencia económica contemporánea y referente tecnológico, China ofrece al visitante una experiencia integral donde patrimonio histórico, dinamismo urbano, paisajes naturales y hospitalidad se integran en un destino de relevancia global.</p>
             </div>
         </div>
 
-        <!-- Título Destinos + texto -->
         <section style="margin: 30px 0 20px;">
-            <h2>Destinos</h2>
-            <p style="text-align: justify; font-size: 1.2rem; max-width: 1300px; margin: 0 auto;">La República Popular China ofrece una organización territorial diversa que refleja su complejidad cultural e histórica. El país se compone de 34 divisiones administrativas de primer nivel: 22 provincias, 4 municipios directamente administrados por el gobierno central —Beijing, Shanghai, Chongqing y Tianjin—, 5 regiones autónomas con mayores facultades legislativas vinculadas a grupos étnicos minoritarios, y 2 Regiones Administrativas Especiales. Con más de 660 ciudades de distintos tamaños y dinámicas económicas, cada destino ofrece una identidad propia en cultura, patrimonio, gastronomía y experiencias, consolidando a China como un país de contrastes y oportunidades para el viajero.</p>
+            <h2 data-i18n="sub-destinos">Destinos</h2>
+            <p style="text-align: justify; font-size: 1.2rem; max-width: 1300px; margin: 0 auto;" data-i18n="texto-index-destinos">La República Popular China ofrece una organización territorial diversa que refleja su complejidad cultural e histórica. El país se compone de 34 divisiones administrativas de primer nivel: 22 provincias, 4 municipios directamente administrados por el gobierno central —Beijing, Shanghai, Chongqing y Tianjin—, 5 regiones autónomas con mayores facultades legislativas vinculadas a grupos étnicos minoritarios, y 2 Regiones Administrativas Especiales. Con más de 660 ciudades de distintos tamaños y dinámicas económicas, cada destino ofrece una identidad propia en cultura, patrimonio, gastronomía y experiencias, consolidando a China como un país de contrastes y oportunidades para el viajero.</p>
         </section>
 
-        <!-- ===== SECCIÓN ¿POR QUÉ IR? con fondo #FFF7E2 ===== -->
         <div class="bg-crema">
-            <h2>¿POR QUÉ IR?</h2>
+            <h2 data-i18n="sub-porqueir">¿POR QUÉ IR?</h2>
 
-            <!-- Primera fila 3 columnas (i3,i4,i5) -->
             <div class="three-col">
                 <div class="card">
                     <div class="card-img"><img src="imagenes/i3.jpg" alt="Historia Milenaria"></div>
                     <div class="card-content">
-                        <h3>Historia Milenaria</h3>
-                        <p>Más de 5.000 años de civilización reflejados en templos, palacios y tradiciones ancestrales.</p>
+                        <h3 data-i18n="card-historia">Historia Milenaria</h3>
+                        <p data-i18n="texto-card-historia">Más de 5.000 años de civilización reflejados en templos, palacios y tradiciones ancestrales.</p>
                     </div>
                 </div>
                 <div class="card">
                     <div class="card-img"><img src="imagenes/i4.jpg" alt="Patrimonio Monumental"></div>
                     <div class="card-content">
-                        <!-- ATENCIÓN: el subtítulo dice "Historia Milenaria" pero el texto corresponde a patrimonio monumental. Respetamos tu descripción literal -->
-                        <h3>Historia Milenaria</h3>
-                        <p>Desde la Gran Muralla hasta la Ciudad Prohibida, monumentos reconocidos mundialmente.</p>
+                        <h3 data-i18n="card-patrimonio">Patrimonio Monumental</h3>
+                        <p data-i18n="texto-card-patrimonio">Desde la Gran Muralla hasta la Ciudad Prohibida, monumentos reconocidos mundialmente.</p>
                     </div>
                 </div>
                 <div class="card">
                     <div class="card-img"><img src="imagenes/i5.jpg" alt="Sabiduría Filosófica"></div>
                     <div class="card-content">
-                        <h3>Sabiduría Filosófica</h3>
-                        <p>Cuna del confucianismo y el taoísmo, donde la armonía y el equilibrio son valores centrales.</p>
+                        <h3 data-i18n="card-sabiduria">Sabiduría Filosófica</h3>
+                        <p data-i18n="texto-card-sabiduria">Cuna del confucianismo y el taoísmo, donde la armonía y el equilibrio son valores centrales.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Segunda fila tres columnas (i6,i7,i8) -->
             <div class="three-col">
                 <div class="card">
                     <div class="card-img"><img src="imagenes/i6.jpg" alt="Festivales Únicos"></div>
                     <div class="card-content">
-                        <h3>Festivales Únicos</h3>
-                        <p>Celebraciones como el Año Nuevo Chino llenan ciudades de color, simbolismo y tradición.</p>
+                        <h3 data-i18n="card-festivales">Festivales Únicos</h3>
+                        <p data-i18n="texto-card-festivales">Celebraciones como el Año Nuevo Chino llenan ciudades de color, simbolismo y tradición.</p>
                     </div>
                 </div>
                 <div class="card">
                     <div class="card-img"><img src="imagenes/i7.jpg" alt="Naturaleza y Paisajes"></div>
                     <div class="card-content">
-                        <h3>Naturaleza y Paisajes</h3>
-                        <p>Montañas, parques nacionales y escenarios naturales como el Zhangjiajie National Forest Park ofrecen vistas impresionantes.</p>
+                        <h3 data-i18n="card-naturaleza">Naturaleza y Paisajes</h3>
+                        <p data-i18n="texto-card-naturaleza">Montañas, parques nacionales y escenarios naturales como el Zhangjiajie National Forest Park ofrecen vistas impresionantes.</p>
                     </div>
                 </div>
                 <div class="card">
                     <div class="card-img"><img src="imagenes/i8.jpg" alt="El Panda Gigante"></div>
                     <div class="card-content">
-                        <h3>El Panda Gigante</h3>
-                        <p>El Giant Panda, símbolo nacional de paz y conservación, representa la conexión entre naturaleza y cultura.</p>
+                        <h3 data-i18n="card-panda">El Panda Gigante</h3>
+                        <p data-i18n="texto-card-panda">El Giant Panda, símbolo nacional de paz y conservación, representa la conexión entre naturaleza y cultura.</p>
                     </div>
                 </div>
             </div>
-        </div><!-- fin fondo crema -->
+        </div>
 
-        <!-- LUGARES MÁS VISITADOS -->
-        <h2>LUGARES MÁS VISITADOS</h2>
+        <h2 data-i18n="sub-lugares">LUGARES MÁS VISITADOS</h2>
 
         <div class="complex-grid">
             <div class="left-large">
@@ -474,37 +113,35 @@
             <div class="right-split">
                 <div class="split-row">
                     <div class="split-img"><img src="imagenes/i10.jpg" alt="Gran Muralla"></div>
-                    <div class="split-text"><strong>La Gran Muralla China</strong> La icónica muralla histórica y una de las Nueve Siete Maravillas del Mundo.</div>
+                    <div class="split-text"><strong>La Gran Muralla China</strong> <span data-i18n="texto-muralla">La icónica muralla histórica y una de las Siete Maravillas del Mundo.</span></div>
                 </div>
                 <div class="split-row">
-                    <div class="split-text"><strong>Templo del Cielo</strong> Complejo ceremonial donde los emperadores realizaban rituales sagrados.</div>
+                    <div class="split-text"><strong>Templo del Cielo</strong> <span data-i18n="texto-templo">Complejo ceremonial donde los emperadores realizaban rituales sagrados.</span></div>
                     <div class="split-img"><img src="imagenes/i11.jpg" alt="Templo del Cielo"></div>
                 </div>
                 <div class="split-row">
                     <div class="split-img"><img src="imagenes/i12.jpg" alt="Guerreros terracotta"></div>
-                    <div class="split-text"><strong>Guerreros de terracotta</strong> Impresionante ejército de esculturas funerarias en Xi’an.</div>
+                    <div class="split-text"><strong>Guerreros de terracotta</strong> <span data-i18n="texto-guerreros">Impresionante ejército de esculturas funerarias en Xi'an.</span></div>
                 </div>
             </div>
         </div>
 
-        <!-- botón derecha -->
         <div class="btn-right">
-            <button class="btn-culture">EXPLORA LA CULTURA</button>
+            <button class="btn-culture" onclick="window.location.href='cultura.html'" data-i18n="btn-cultura">EXPLORA LA CULTURA</button>
         </div>
     </main>
 
     <footer>
         <div class="container footer-content">
             <div class="footer-links">
-                <a href="#">Inicio</a>
-                <a href="#">Cultura</a>
-                <a href="#">Destinos</a>
-                <a href="#">Sobre Nosotros</a>
-                <a href="#">Referencias</a>
-                <a href="#">Idioma</a>
+                <a href="index.html" data-i18n="nav-inicio">Inicio</a>
+                <a href="cultura.html" data-i18n="nav-cultura">Cultura</a>
+                <a href="destinos.html" data-i18n="nav-destinos">Destinos</a>
+                <a href="sobrenosotros.html" data-i18n="nav-sobrenosotros">Sobre Nosotros</a>
+                <a href="referencias.html" data-i18n="nav-referencias">Referencias</a>
             </div>
-            <div class="copyright">
-                © 2025 web-china · Todos los derechos reservados
+            <div class="copyright" data-i18n="footer-copyright">
+                © 2026 web-china · Todos los derechos reservados
             </div>
         </div>
     </footer>
