@@ -34,7 +34,7 @@
             <img src="imagenes/c1.jpg" alt="Filosofía china">
         </div>
 
-        <h1 data-i18n="title-cultura">Filosofía</h1>
+        <h1 id="filosofia" data-i18n="title-cultura">Filosofía</h1>
 
         <div class="two-col">
             <div class="col-img">
@@ -46,21 +46,21 @@
         </div>
 
         <div class="three-col">
-            <div class="card">
+            <div class="card" id="confucianismo">
                 <div class="card-img"><img src="imagenes/c3.jpg" alt="Confucianismo"></div>
                 <div class="card-content">
                     <h3 data-i18n="cultura-confucianismo">Confucianismo</h3>
                     <p data-i18n="texto-cultura-confucianismo">Sistema ético y filosófico basado en las enseñanzas de Confucius que promueve la armonía social mediante el cumplimiento de deberes, el respeto a la jerarquía, la educación y la virtud moral.</p>
                 </div>
             </div>
-            <div class="card">
+            <div class="card" id="taoismo">
                 <div class="card-img"><img src="imagenes/c4.jpg" alt="Taoísmo"></div>
                 <div class="card-content">
                     <h3 data-i18n="cultura-taoismo">Taoísmo</h3>
                     <p data-i18n="texto-cultura-taoismo">Tradición filosófico-religiosa centrada en el "Tao" (el Camino), que propone vivir en equilibrio con el orden natural del universo, practicando la sencillez, la espontaneidad y el principio de wu-wei (acción sin forzar).</p>
                 </div>
             </div>
-            <div class="card">
+            <div class="card" id="budismo">
                 <div class="card-img"><img src="imagenes/c5.jpg" alt="Budismo"></div>
                 <div class="card-content">
                     <h3 data-i18n="cultura-budismo">Budismo</h3>
@@ -69,7 +69,7 @@
             </div>
         </div>
 
-        <div class="bg-azul">
+        <div class="bg-azul" id="simbolos">
             <h2 data-i18n="sub-simbolos">SÍMBOLOS Y SIGNIFICADOS</h2>
             <div class="two-col">
                 <div class="col-text" data-i18n="texto-cultura-simbolos">
@@ -83,18 +83,18 @@
             </div>
         </div>
 
-        <h2 data-i18n="sub-festivales">FESTIVALES TRADICIONALES</h2>
+        <h2 id="festivales" data-i18n="sub-festivales">FESTIVALES TRADICIONALES</h2>
         <p style="text-align: justify; font-size: 1.2rem; max-width: 1300px; margin: 0 auto 40px;" data-i18n="texto-cultura-festivales">Los festivales tradicionales chinos constituyen una expresión viva de la identidad cultural y la continuidad histórica del país. Celebraciones como el Año Nuevo Chino, el Festival del Medio Otoño y el Festival del Bote del Dragón integran rituales ancestrales, simbolismo y valores familiares que fortalecen el sentido de comunidad y pertenencia. A través de elementos como linternas rojas, danzas tradicionales y ofrendas simbólicas, estas festividades transmiten mensajes de prosperidad, gratitud y renovación, reflejando una cultura donde tradición y modernidad conviven en armonía.</p>
 
         <div class="three-col">
-            <div class="card">
+            <div class="card" id="anioviejo">
                 <div class="card-img"><img src="imagenes/c7.jpg" alt="Año Nuevo Chino"></div>
                 <div class="card-content">
                     <h3 data-i18n="cultura-anioviejo">Año Nuevo Chino</h3>
                     <p data-i18n="texto-cultura-anioviejo">El Año Nuevo Chino, también conocido como Festival de Primavera, es la celebración más importante del calendario tradicional y simboliza renovación, prosperidad y continuidad familiar. Basado en el ciclo lunar, marca el inicio de un nuevo periodo cargado de esperanza y proyección colectiva. Durante estas fechas se produce la mayor migración anual del mundo, ya que millones de personas regresan a sus hogares para reunirse con sus familias, reafirmando la centralidad del núcleo familiar en la cultura china. Las tradiciones incluyen la entrega de sobres rojos (hongbao), la decoración con faroles y símbolos auspiciosos, y las danzas del dragón y el león para atraer buena fortuna. Más que una festividad, representa un acto cultural de unidad, gratitud y renovación espiritual.</p>
                 </div>
             </div>
-            <div class="card">
+            <div class="card" id="qingming">
                 <div class="card-img"><img src="imagenes/c8.jpg" alt="Festival Qingming"></div>
                 <div class="card-content">
                     <h3 data-i18n="cultura-qingming">Festival Qingming</h3>
@@ -103,7 +103,7 @@
             </div>
             <div>
                 <div class="solid-box-red" style="background-color: #DF1A2D; margin-bottom: 20px;">
-                    <h3 style="color:white; border-left-color:white;">El Año Nuevo Chino y su Sistema Zodiacal</h3>
+                    <h3 style="color:white; border-left-color:white;" data-i18n="texto-cultura-zodiaco-title">El Año Nuevo Chino y su Sistema Zodiacal</h3>
                     <p data-i18n="texto-cultura-zodiaco">El Año Nuevo Chino se rige por el calendario lunisolar tradicional, cuyo inicio varía entre el 21 de enero y el 20 de febrero, según la primera luna nueva del año. Cada año está asociado a uno de los doce animales del zodiaco chino (Rata, Buey, Tigre, Conejo, Dragón, Serpiente, Caballo, Cabra, Mono, Gallo, Perro y Cerdo), formando un ciclo que se repite cada doce años. Además del animal, cada año se combina con uno de los cinco elementos —madera, fuego, tierra, metal y agua— creando un ciclo completo de 60 años. Este sistema no solo organiza el tiempo, sino que también influye en interpretaciones culturales sobre personalidad, fortuna y dinámicas sociales. Más que una práctica astrológica, el zodiaco chino constituye una expresión simbólica del equilibrio entre naturaleza, tiempo y sociedad dentro de la cosmovisión tradicional china.</p>
                 </div>
                 <div class="extra-image">
@@ -116,14 +116,14 @@
             <div class="solid-box-red" style="background-color: #DF1A2D;">
                 <p data-i18n="texto-cultura-festivales-texto">Los festivales tradicionales de China constituyen una manifestación viva de su identidad histórica, espiritual y social. Cada celebración —desde el Año Nuevo hasta Qingming— refleja valores como la unidad familiar, el respeto por los ancestros, la gratitud y la esperanza colectiva. Participar en estos eventos permite comprender no solo sus rituales y símbolos, sino también la profunda conexión entre tradición y vida contemporánea. Asistir a un festival en China es experimentar de primera mano la armonía entre cultura, comunidad y celebración. Es una invitación a descubrir una civilización milenaria que mantiene sus raíces vivas a través de cada encuentro, cada danza y cada ritual compartido.</p>
             </div>
-            <div class="card">
+            <div class="card" id="bote-dragon">
                 <div class="card-img"><img src="imagenes/c10.jpg" alt="Festival Bote Dragón"></div>
                 <div class="card-content">
                     <h3 data-i18n="cultura-bote">Festival del Bote del Dragón</h3>
                     <p data-i18n="texto-cultura-bote">El Festival del Bote del Dragón se celebra el quinto día del quinto mes lunar y conmemora al poeta y estadista Qu Yuan, símbolo de lealtad y patriotismo. Las emblemáticas carreras de botes en forma de dragón evocan el intento histórico de rescatarlo del río, mientras que el consumo de zongzi —arroz glutinoso envuelto en hojas de bambú— preserva la memoria de su sacrificio. Esta festividad integra tradición, deporte y simbolismo, fortaleciendo la identidad cultural a través de la memoria colectiva. En su dimensión contemporánea, continúa promoviendo valores como el honor, la fidelidad y el compromiso con el bien común.</p>
                 </div>
             </div>
-            <div class="card">
+            <div class="card" id="medio-otono">
                 <div class="card-img"><img src="imagenes/c11.jpg" alt="Festival Medio Otoño"></div>
                 <div class="card-content">
                     <h3 data-i18n="cultura-mediootoño">Festival del Medio Otoño</h3>
@@ -132,7 +132,7 @@
             </div>
         </div>
 
-        <div class="bg-crema">
+        <div class="bg-crema" id="valores">
             <h2 data-i18n="sub-valores">VALORES CULTURALES</h2>
             <div class="two-col">
                 <div class="col-text" data-i18n="texto-cultura-valores">
@@ -145,11 +145,11 @@
             </div>
         </div>
 
-        <h2 data-i18n="sub-gastronomia">GASTRONOMIA Y VESTUARIO</h2>
+        <h2 id="gastronomia" data-i18n="sub-gastronomia">GASTRONOMIA Y VESTUARIO</h2>
 
         <div class="three-col-mixed">
             <div class="solid-box" style="background-color: #FEBF1B;">
-                <h3 style="color:white; border-left-color:white;">Gastronomía</h3>
+                <h3 style="color:white; border-left-color:white;" data-i18n="texto-cultura-gastronomia-title">Gastronomía</h3>
                 <p data-i18n="texto-cultura-gastronomia">La gastronomía china es una expresión integral de su identidad cultural, basada en el equilibrio de sabores, texturas y colores. Más que una práctica culinaria, representa una filosofía de armonía influenciada por principios tradicionales como el yin y el yang, donde los ingredientes se combinan buscando balance nutricional y energético. La diversidad geográfica del país ha dado origen a múltiples tradiciones regionales, cada una con técnicas, especias y métodos de preparación propios. Compartir los alimentos en mesa redonda simboliza unidad, respeto y cohesión familiar, convirtiendo la comida en un acto social profundamente significativo.</p>
             </div>
             <div class="card-img" style="height: auto; min-height: 320px; border-radius: 32px;">
@@ -160,7 +160,7 @@
             </div>
         </div>
 
-        <div class="three-col-mixed">
+        <div class="three-col-mixed" id="vestuario">
             <div class="card-img" style="height: auto; min-height: 320px; border-radius: 32px;">
                 <img src="imagenes/c15.jpg" alt="c15 vestuario">
             </div>
@@ -168,7 +168,7 @@
                 <img src="imagenes/c16.jpg" alt="c16 vestuario">
             </div>
             <div class="solid-box" style="background-color: #FEBF1B;">
-                <h3 style="color:white; border-left-color:white;">Vestuario Tradicional</h3>
+                <h3 style="color:white; border-left-color:white;" data-i18n="texto-cultura-vestuario-title">Vestuario Tradicional</h3>
                 <p data-i18n="texto-cultura-vestuario">El vestuario tradicional chino refleja jerarquía, simbolismo y estética cultural. Prendas como el hanfu y el qipao destacan por su elegancia, líneas fluidas y uso de colores con significado simbólico, especialmente el rojo y el dorado, asociados con prosperidad y buena fortuna. Históricamente, los materiales, bordados y diseños indicaban estatus social y función ceremonial. Más allá de su valor estético, la indumentaria tradicional expresa identidad histórica y continuidad cultural, siendo utilizada actualmente en festividades, celebraciones y representaciones artísticas como una forma de preservar el patrimonio intangible del país.</p>
             </div>
         </div>
